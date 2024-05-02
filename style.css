@@ -1,0 +1,92 @@
+
+#Ingredients{
+background-color: #f3eeea;
+border: 3px ;
+border-radius: 8px;
+margin: 30px;
+font-family:Comic Sans MS, cursive;
+
+
+}
+main{
+    align-items: center;
+}
+ img{
+       
+        border: 2px solid #75474a; 
+border-width: 5px;
+border-radius: 6px;
+        max-width: 100%; 
+        margin: 165px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+}
+
+body {
+    display: grid;
+  
+    height: 100vh; 
+    margin: 0; 
+    background-image: url("background.jpg");
+    font-family:Comic Sans MS, cursive;
+}
+#CARBONARA{
+    /* border:8px solid #aa7d7a; */
+    border-radius: 12px;
+    padding: 120px, 120px, 120px;
+    margin: 180px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-family:Comic Sans MS, cursive;
+    background-color: white;
+}
+#Backtolist{
+    background-color:#75474a ;
+    background-size: 150px;
+    border: 10px;
+    color: #f3eeea;
+    padding: 10px;
+    border-radius: 10px;
+    
+
+}
+#Steps{
+    margin: 30px;
+}
+#Foodlist{
+    font-family:Comic Sans MS, cursive;
+    background-color: white;
+    border-radius: 5px;
+    padding-bottom: 15px;
+      width: 70%;
+      margin-left: 16%;
+    /* display: inline-block;   */
+      /* margin: 2px 100px 20px 100px;   */
+      /* padding: 10px 200px;   */
+      /* background-color: white;  
+      border: 1px solid white;   */
+      /* margin-top: -5%; */
+      /* padding-left: 2%; */
+      /* padding-top: 0%; */
+      /* margin-top: 2px; */
+    /* padding-left: 10px;
+    height: 100%;
+    margin-bottom: 70%;
+    margin: -10%;
+    margin-left: 3; */
+}
+#intro{
+    margin: 30px;
+    margin-bottom: 50px;
+}
+
+
+#recipe{
+    padding-top:30px ;
+    padding-left:38px ;
+    text-align: centre;
+    
+}
+
+
+
