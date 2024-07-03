@@ -1,6 +1,6 @@
 <?php
 
-$servername ="localhost:3307";
+$servername ="localhost:3306";
 $username ="root";
 $password="";
 $dbname="recipe_site";
@@ -20,6 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['email'];
     $ConfirmPassword =  $_POST['confirm_password'];
     $user_image = $_FILES['user_image'];
+    $user_type_name = $_POST['user_type_name'];
     if ($password !== $ConfirmPassword) {
         echo "Passwords do not match";
         exit;
@@ -44,9 +45,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
   
     
-    $sql = "INSERT INTO users (username, password, email, user_image) VALUES (?, ?, ?, ?)";
+    $sql = "INSERT INTO users (username, password, email, user_image, user_type_name) VALUES (?, ?, ?, ?,?)";
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("ssss", $username,  $hashedPassword, $email, $user_image);
+    $stmt->bind_param("sssss", $username,  $hashedPassword, $email, $user_image, $user_type_name);
 
     if ($stmt->execute()) {
         echo "Registration successful!";

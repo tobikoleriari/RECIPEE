@@ -1,5 +1,5 @@
 <?php
- $servername = "localhost:3307";
+ $servername = "localhost:3306";
  $username_db = "root";
  $password_db = "";
  $dbname = "recipe_site";
@@ -15,7 +15,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $recipe_owner = $_POST['recipe_owner'];
     $category_name = $_POST['category_name'];
     $recipe_image = "";
-    $steps = $_POST['recipe_steps'];
+    // $steps = $_POST['steps'];
+    $steps = isset($_POST['steps']) ? $_POST['steps'] : ''; 
 
 
 if (isset($_FILES['recipe_image']) && $_FILES['recipe_image']['error'] == UPLOAD_ERR_OK) {
@@ -37,7 +38,7 @@ if (move_uploaded_file($_FILES["recipe_image"]["tmp_name"], $target_file)) {
   
    
 
-    $sql = "INSERT INTO recipes (recipe_name, ingredients, recipe_image, recipe_owner, category_name ,recipe_steps ) VALUES (?, ?, ?, ?, ?,?)";
+    $sql = "INSERT INTO recipes (recipe_name, ingredients, recipe_image, recipe_owner, category_name ,steps ) VALUES (?, ?, ?, ?, ?,?)";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("ssssss", $recipe_name, $ingredients, $recipe_image, $recipe_owner, $category_name, $steps);
 
