@@ -3,7 +3,7 @@ session_start();
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-// Ensure the user is logged in and is a recipe owner
+
 if (!isset($_SESSION['username']) || $_SESSION['user_type_name'] != 'Recipe Owner') {
     header("Location: landingpage.php");
     exit;
@@ -32,43 +32,54 @@ if (!isset($_SESSION['username']) || $_SESSION['user_type_name'] != 'Recipe Owne
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
 }
-
 body {
     display: flex;
-    flex-direction: column; /* Changed to column to allow vertical scroll */
-    justify-content: flex-start; /* Changed to flex-start to align items at the top */
+    flex-direction: column; 
+    justify-content: flex-start; 
     align-items: center;
     min-height: 100vh;
     background-image: url(loginpic.jpg);
-    overflow-y: auto; /* Changed to auto to allow vertical scrolling */
-    padding: 20px; /* Added padding to create some space around the content */
+    overflow-y: auto; 
+    padding: 20px; 
 }
+header {
+        width: 100%;
+        background-color:#aa7d7a ;
+        padding: 10px 20px;
+        color: white;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
 
+    .user-info {
+        font-weight: 500;
+    }
 .recipe-box {
     width: 100%;
-    max-width: 600px; /* Changed width to max-width for better responsiveness */
+    max-width: 600px; 
     background: #75474a;
     border-radius: 20px;
-    padding: 20px; /* Added padding for better spacing */
-    margin: 20px 0; /* Added margin to create space around the box */
+    padding: 20px;
+    margin: 20px 0; 
 }
 
 h2 {
     font-size: 2em;
     color: #fff;
     text-align: center;
-    margin-bottom: 20px; /* Added margin to create space below the heading */
+    margin-bottom: 20px; 
 }
 
 .input-box, .input-box-file {
     position: relative;
-    width: 100%; /* Changed width to 100% for better responsiveness */
-    margin: 10px 0; /* Adjusted margin for better spacing */
+    width: 100%; 
+    margin: 10px 0; 
 }
 
 .input-box .input-line {
     position: absolute;
-    bottom: 0; /* Adjusted bottom to align the line properly */
+    bottom: 0; 
     left: 0;
     width: 100%;
     height: 2px;
@@ -93,32 +104,32 @@ h2 {
 .input-box-file input:focus ~ label,
 .input-box-file input:valid ~ label,
 .input-box-file:hover label {
-    top: -10px; /* Adjusted top position for better alignment */
+    top: -10px; 
     font-size: 0.8em; 
     color: #aaa; 
 }
 
 .input-box input, .input-box-file input {
     width: 100%;
-    height: 40px; /* Adjusted height for better spacing */
+    height: 40px; 
     background: transparent;
     border: none;
     outline: none;
     font-size: 1em;
     color: #fff;
-    padding: 10px 5px; /* Adjusted padding for better spacing */
+    padding: 10px 5px; 
 }
 
 .input-box-file label.upload-button {
     display: block;
     width: 100%;
-    height: 40px; /* Adjusted height for consistency */
+    height: 40px; 
     background: transparent;
     border: 1px solid #fff;
-    border-radius: 5px; /* Adjusted border-radius for consistency */
+    border-radius: 5px; 
     cursor: pointer;
     text-align: center;
-    line-height: 40px; /* Adjusted line-height for better vertical alignment */
+    line-height: 40px; 
     transition: .5s ease;
 }
 
@@ -132,13 +143,13 @@ button {
     background: #fff;
     border: none;
     outline: none;
-    border-radius: 20px; /* Adjusted border-radius for consistency */
+    border-radius: 20px; 
     cursor: pointer;
     font-size: 1em;
     color: #191919;
     font-weight: 500;
     transition: .5s ease;
-    margin-top: 20px; /* Added margin to create space above the button */
+    margin-top: 20px;
 }
 
 .login-link {
@@ -195,7 +206,7 @@ button {
         <!-- <label for="category_id">Category name:</label> -->
         <!-- <label for="category_id">Category:</label> -->
             <select id="category_name" name="category_name">
-                <!-- Dynamically populate options with categories from the database -->
+                
                 <?php
                 $servername = "localhost:3306";
                 $username_db = "root";

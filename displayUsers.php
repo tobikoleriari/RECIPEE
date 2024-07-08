@@ -3,13 +3,13 @@ session_start();
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-// Ensure the user is logged in and is an admin
+
 if (!isset($_SESSION['username']) || $_SESSION['user_type_name'] != 'Admin') {
     header("Location: recipe_owner_html.php");
     exit;
 }
 
-// Database connection
+
 $serverName = "localhost";
 $userName = "root";
 $password = " ";
@@ -17,12 +17,11 @@ $dbName = "recipe_site";
 
 $conn = new mysqli($serverName, $userName, $password, $dbName);
 
-// Check connection
+
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Fetch user details
 $username = $_SESSION['username'];
 $query = "SELECT * FROM users WHERE username=?";
 $stmt = $conn->prepare($query);
@@ -40,51 +39,12 @@ $conn->close();
 <head>
     <meta charset="UTF-8">
     <title>Display Users</title>
-    <link rel="stylesheet" href="#"> 
-    <!-- <style>
-        header{
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
-
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        th, td {
-            padding: 10px;
-            text-align: left;
-            border-bottom: 1px solid #ddd;
-        }
-        th {
-            background-color: #f2f2f2;
-        }
-        tr:hover {
-            background-color: #aa7d7a;
-        }
-        .edit-button {
-            background-color: #75474a; 
-            color: white;
-            border: none;
-            padding: 5px 10px;
-            cursor: pointer;
-        }
-        .edit-button:hover {
-            background-color: #d4b8b9;
-        }
-        body{
-    background-image: url("background.jpg");
-    .roboto-medium {
-        font-family: "Roboto", sans-serif;
-        font-weight: 500;
-        font-style: normal;
-      }
-}
-    </style> -->
+    <link rel="stylesheet" href="#">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
 
         body {
-            background-image: url('background.jpg');
+            background-image: url('IMAGES\foods.webp');
             background-size: cover;
             background-attachment: fixed;
             font-family: 'Roboto', sans-serif;
@@ -158,6 +118,29 @@ $conn->close();
         img {
             border-radius: 50%;
         }
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .pagination a {
+            color: #75474a;
+            padding: 8px 16px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .pagination a.active {
+            background-color: #75474a;
+            color: white;
+            border-radius: 5px;
+        }
+
+        .pagination a:hover:not(.active) {
+            background-color: #ddd;
+            border-radius: 5px;
+        }
     </style>
 </head>
 <body>
@@ -195,7 +178,7 @@ $conn->close();
         };
         $start_from = ($page - 1) * $limit;
 
-        $sql = "SELECT username, email, user_type_name, user_image FROM users";
+        $sql = "SELECT username, email, user_type_name, user_image FROM users LIMIT $start_from, $limit";
         $result = $conn->query($sql);
 
         if ($result->num_rows > 0) {
@@ -211,10 +194,25 @@ $conn->close();
         } else {
             echo "<tr><td colspan='5'>No users found</td></tr>";
         }
-
-        $conn->close();
+        $sql = "SELECT COUNT(username) FROM users";
+        $result = $conn->query($sql);
+        $row = $result->fetch_row();
+        $total_records = $row[0];
+        $total_pages = ceil($total_records / $limit);
+        $conn->close();   
         ?>
     </table>
+    <div class="pagination">
+    <?php
+    for ($i = 1; $i <= $total_pages; $i++) {
+        if ($i == $page) {
+            echo "<a class='active' href='displayUsers.php?page=" . $i . "'>" . $i . "</a> ";
+        } else {
+            echo "<a href='displayUsers.php?page=" . $i . "'>" . $i . "</a> ";
+        }
+    }
+    ?>
+</div>
     <script>
         function editUser(username) {
             window.location.href = 'editUser.php?username=' + username;

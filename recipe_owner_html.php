@@ -72,7 +72,7 @@ $conn->close();
             color: #fff;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
-
+        
         .profile-container {
             text-align: center;
             margin-top: 50px;
@@ -159,11 +159,14 @@ $conn->close();
 </head>
 <body>
     <?php include 'header.php'; ?>
+    <h2>Your Profile </h2>
     <div class="profile-container">
         <img src="<?php echo $user['user_image']; ?>" alt="User Image">
         <h1><?php echo $user['username']; ?></h1>
         <p><?php echo $user['email']; ?></p>
         <button class="add-recipe-button" onclick="window.location.href='add_recipe_html.php'">Add Recipe</button>
+        <button class="displayRecipe.php" onclick="window.location.href='displayRecipe.php'">My Recipes</button>
+
     </div>
     <?php include 'footer.php'; ?>
 </body>

@@ -62,12 +62,12 @@ session_start();
  if ($conn->connect_error) {
      die("Connection failed: " . $conn->connect_error);
  }
-// Process form submission
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    // Query the database to retrieve user details
+    
     $sql = "SELECT  username, password, user_type_name FROM users WHERE username = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("s", $username);
@@ -77,14 +77,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($result->num_rows == 1) {
         $user = $result->fetch_assoc();
 
-        // Verify password
+        
         if (password_verify($password, $user['password'])) {
-            // Password is correct, start a session and store user details
             $_SESSION['user_id'] = $user['id'];
             $_SESSION['username'] = $user['username'];
-            $_SESSION['user_type_name'] = $user['user_type_name']; // Store user type in session
+            $_SESSION['user_type_name'] = $user['user_type_name']; 
 
-            // Redirect based on user type
+         
             if ($_SESSION['user_type_name'] === 'Recipe Owner') {
                 header("Location: recipe_owner_html.php");
             } else {
