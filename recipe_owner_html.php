@@ -44,14 +44,15 @@ $conn->close();
         @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
 
         body {
-            background-image: url('background.jpg');
-            background-size: cover;
-            background-attachment: fixed;
+            /* background-image: url('loginpic.jpg'); */
+            /* background-size: cover; */
+            /* background-attachment: fixed; */
             font-family: 'Roboto', sans-serif;
             display: flex;
             flex-direction: column;
             align-items: center;
             padding: 20px;
+            overflow: auto;
         }
 
         header {
@@ -72,7 +73,7 @@ $conn->close();
             color: #fff;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
-        
+
         .profile-container {
             text-align: center;
             margin-top: 50px;
@@ -88,6 +89,7 @@ $conn->close();
             height: 150px;
             border: 4px solid #75474a;
             margin-bottom: 20px;
+            margin-left: -80px;
         }
 
         .profile-container h1 {
@@ -159,15 +161,17 @@ $conn->close();
 </head>
 <body>
     <?php include 'header.php'; ?>
-    <h2>Your Profile </h2>
+    <h2 style= "color: black"; >Your Profile </h2>
     <div class="profile-container">
         <img src="<?php echo $user['user_image']; ?>" alt="User Image">
         <h1><?php echo $user['username']; ?></h1>
         <p><?php echo $user['email']; ?></p>
         <button class="add-recipe-button" onclick="window.location.href='add_recipe_html.php'">Add Recipe</button>
-        <button class="displayRecipe.php" onclick="window.location.href='displayRecipe.php'">My Recipes</button>
+        <br>
+        <br>
+        <button class="add-recipe-button" onclick="window.location.href='displayRecipe.php'">My Recipes</button>
 
     </div>
-    <?php include 'footer.php'; ?>
 </body>
+<?php include 'footer.php'; ?>
 </html>

@@ -198,12 +198,12 @@ button {
         <div class="input-line"></div>
       </div>
       <div class="input-box">
-        <label for="recipe_owner">Recipe Owner (User ID):</label>
+        <label for="recipe_owner">Recipe Owner </label>
         <input type="text" id="recipe_owner" name="recipe_owner" required>
         <div class="input-line"></div>
       </div>
+      <label for="category_id" style="color: #fff;">Category name:</label>
       <div class="input-box">
-        <!-- <label for="category_id">Category name:</label> -->
         <!-- <label for="category_id">Category:</label> -->
             <select id="category_name" name="category_name">
                 

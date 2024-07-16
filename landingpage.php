@@ -25,53 +25,53 @@
     <h1 id="Browse">Browse Meals</h1>
     <p id="bodybrowse" style="margin-left: 40px; font-size: larger; ">
         Whether you're a seasoned chef or a kitchen newcomer, No Thyme To Waste has something for you!  <br>Dive into a world of culinary delights, from comforting classics like pasta dishes and slow-roasted dinners to exciting global flavors and vegetarian options. <br> We cater to every taste and dietary preference, so get ready to explore a world of delicious possibilities!</p>
-<div class="Workfood">
-           
-           <div class="foodpics">
-            <a href="#"><img src="IMAGES\vegan-lasagna-recipe.jpg"></a>
+    <div class="Workfood">
+        <div class="foodpics">
+            <a href="category.php?category=Pasta"><img src="IMAGES\vegan-lasagna-recipe.jpg"></a>
             <div class="layer1">
                 <h2>Pasta</h2>
                 <p>Comforting classics and innovative twists, <br>perfect for quick meals or family dinners.</p>
             </div>
-           </div>  
-           <div class="foodpics">
-            <a href="#"><img src="IMAGES\banana-cream-pie-recipe-1-320x320.jpg"></a>
+        </div>  
+        <div class="foodpics">
+            <a href="category.php?category=Dessert"><img src="IMAGES\banana-cream-pie-recipe-1-320x320.jpg"></a>
             <div class="layer1">
                 <h3>Desserts</h3>
                 <p>Indulge your sweet tooth with decadent <br>treats and lighter options.</p>
             </div>
-                   </div>  
-                   <div class="foodpics">
-                    <a href="#"> <img src="IMAGES\vodka-soda-recipe-320x320.jpg"></a>
-                    <div class="layer1">
-                        <h3>Drinks</h3>
-                        <p>Refreshing beverages to quench your thirst,  <br>from hot brews to cool cocktails</p>
-                    </div>
-                           </div>         
-           </div>
-           <div class="Workfood2">
-           <div class="foodpics">
-            <a href="#"> <img style="width: 85%;" src="IMAGES\fattoush-salad-recipe-320x320.jpg"></a>
+        </div>  
+        <div class="foodpics">
+            <a href="category.php?category=Drinks"><img src="IMAGES\vodka-soda-recipe-320x320.jpg"></a>
+            <div class="layer1">
+                <h3>Drinks</h3>
+                <p>Refreshing beverages to quench your thirst,  <br>from hot brews to cool cocktails</p>
+            </div>
+        </div>         
+    </div>
+    <div class="Workfood2">
+        <div class="foodpics">
+            <a href="category.php?category=Salad"><img style="width: 85%;" src="IMAGES\fattoush-salad-recipe-320x320.jpg"></a>
             <div class="layer1">
                 <h3>Salads</h3>
                 <p>Fresh and flavorful combinations,  <br>perfect as light meals or side dishes.</p>
             </div>
-                   </div>  
-                   <div class="foodpics">
-                    <a href="#">   <img style="width: 85%;" src="IMAGES\sourdough-pancakes-recipe-320x320.jpg"></a>
-                    <div class="layer1">
-                        <h3>Breakfast</h3>
-                        <p>Fuel your day with delicious options,  <br>from sweet pancakes to savory scrambles.</p>
-                    </div>
-                           </div> 
-                           <div class="foodpics">
-                            <a href="#">   <img style="width: 85%;" src="IMAGES\Summer-Soup-Feature-1-300x300.jpg"></a>
-                            <div class="layer1">
-                                <h3>Soups</h3>
-                                <p>Refreshing beverages to quench your thirst,  <br>from hot brews to cool cocktails</p>
-                            </div>
-                                   </div> 
-                        </div></div>
+        </div>  
+        <div class="foodpics">
+            <a href="category.php?category=Breakfast"><img style="width: 85%;" src="IMAGES\sourdough-pancakes-recipe-320x320.jpg"></a>
+            <div class="layer1">
+                <h3>Breakfast</h3>
+                <p>Fuel your day with delicious options,  <br>from sweet pancakes to savory scrambles.</p>
+            </div>
+        </div> 
+        <div class="foodpics">
+            <a href="category.php?category=Soup"><img style="width: 85%;" src="IMAGES\Summer-Soup-Feature-1-300x300.jpg"></a>
+            <div class="layer1">
+                <h3>Soups</h3>
+                <p>Comforting and nourishing bowls,  <br>from hearty stews to light broths</p>
+            </div>
+        </div> 
+    </div>
+</div>
 </div>
 <!------------------------About--------------------->
 <div class="about" id="about">
